@@ -36,8 +36,8 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
   };
 
   return (
-    <div className="relative inline-flex items-center justify-center">
-      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+    <div className="relative inline-flex items-center justify-center w-full max-w-[320px] mx-auto">
+      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className="filter drop-shadow-xl">
         {/* Background circle */}
         <circle
           className="transition-all duration-300"
@@ -58,11 +58,24 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
         </defs>
         
         <circle
-          className="progress-ring-circle transition-all duration-300"
+          className="progress-ring-circle transition-all duration-700 ease-out"
           stroke="url(#progressGradient)"
           strokeWidth={strokeWidth}
           strokeDasharray={circumference}
           strokeDashoffset={strokeDashoffset}
+          strokeLinecap="round"
+          fill="transparent"
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+        />
+        
+        {/* Shine effect on the gradient */}
+        <circle
+          className="transition-all duration-700 ease-out opacity-20"
+          stroke="white"
+          strokeWidth={2}
+          strokeDasharray="3,10"
           strokeLinecap="round"
           fill="transparent"
           cx={size / 2}
@@ -76,14 +89,15 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
           const coords = getCoordinatesForPercent(percent);
           
           return (
-            <g key={index}>
+            <g key={index} className={marker.isActive ? "animate-pulse-soft" : ""}>
               <circle
                 cx={coords.x}
                 cy={coords.y}
                 r={strokeWidth / 2}
                 fill={marker.isActive ? "rgba(30,30,30,0.8)" : "rgba(60,60,60,0.5)"}
-                stroke={marker.isActive ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.1)"}
+                stroke={marker.isActive ? "rgba(255,255,255,0.3)" : "rgba(255,255,255,0.1)"}
                 strokeWidth={2}
+                className="transition-all duration-500"
               />
               <foreignObject
                 x={coords.x - strokeWidth / 2}
