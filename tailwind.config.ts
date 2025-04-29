@@ -71,6 +71,9 @@ export default {
 				},
 				"bloom-green": "#F2FCE2",
 				"bloom-blue": "#D3E4FD",
+				"fast-orange": "#FF5722",
+				"fast-gradient-start": "#FF5722",
+				"fast-gradient-end": "#E91E63",
 			},
 			fontFamily: {
 				sans: ["Inter", "sans-serif"],
@@ -106,6 +109,10 @@ export default {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'fast-progress': 'linear-gradient(90deg, #FF5722, #E91E63)',
 			}
 		}
 	},

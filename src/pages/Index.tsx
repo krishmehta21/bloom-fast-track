@@ -1,6 +1,5 @@
 
 import { useEffect } from "react";
-import { Navigate } from "react-router-dom";
 import { FastingProvider } from "../contexts/FastingContext";
 import HomePage from "./HomePage";
 
