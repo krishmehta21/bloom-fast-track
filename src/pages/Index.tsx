@@ -1,6 +1,6 @@
 
 import { useEffect } from "react";
-import { FastingProvider } from "../contexts/FastingContext";
+import { FastingProvider } from "../contexts/FastingProvider";
 import HomePage from "./HomePage";
 
 // Main index page that redirects to the HomePage with FastingProvider
